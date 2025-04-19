@@ -1,9 +1,9 @@
 <?php
 
-namespace Yuges\Package\Tests\Feature;
+namespace Yuges\Orderable\Tests\Feature;
 
-use Yuges\Package\Tests\TestCase;
-use Yuges\Package\Tests\Stubs\Models\User;
+use Yuges\Orderable\Tests\TestCase;
+use Yuges\Orderable\Tests\Stubs\Models\User;
 
 class HasTableTest extends TestCase
 {
