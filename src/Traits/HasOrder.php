@@ -14,6 +14,10 @@ use Yuges\Orderable\Observers\OrderableObserver;
  */
 trait HasOrder
 {
+    public function orderable(): OrderOptions
+    {
+        return new OrderOptions;
+    }
 
     public static function ordered(string $direction = 'asc'): Builder
     {
@@ -29,11 +33,6 @@ trait HasOrder
         $builder->getQuery()->orderBy($column, $direction);
 
         return $builder;
-    }
-
-    public function orderable(): OrderOptions
-    {
-        return new OrderOptions;
     }
 
     protected static function bootHasOrder(): void

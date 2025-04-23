@@ -10,4 +10,6 @@ interface Orderable
     public function orderable(): OrderOptions;
 
     public static function ordered(string $direction = 'asc'): Builder;
+
+    public function getMaxOrder(): int;
 }
