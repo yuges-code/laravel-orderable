@@ -3,6 +3,7 @@
 namespace Yuges\Orderable\Options;
 
 use Closure;
+use Yuges\Orderable\Config\Config;
 use Illuminate\Database\Eloquent\Builder;
 
 class OrderOptions
@@ -15,6 +16,13 @@ class OrderOptions
     public ?string $column = 'order';
 
     /**
+     * Order initial number
+     * 
+     * @var integer|null
+     */
+    public ?int $initial = 1;
+
+    /**
      * Order query
      * 
      * @var Closure(Builder $builder): Builder
@@ -23,6 +31,9 @@ class OrderOptions
 
     public function __construct()
     {
+        $this->column = Config::getOrderableOrderColumnName($this->column);
+        $this->initial = Config::getOrderableOrderInitialNumber($this->initial);
+
         $this->query = fn (Builder $builder) => $builder;
     }
 }
