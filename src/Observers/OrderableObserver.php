@@ -3,7 +3,6 @@
 namespace Yuges\Orderable\Observers;
 
 use Yuges\Orderable\Config\Config;
-use Illuminate\Database\Eloquent\Model;
 use Yuges\Orderable\Interfaces\Orderable;
 
 class OrderableObserver
@@ -26,7 +25,7 @@ class OrderableObserver
         }
     }
 
-    public function updating(Model $model): void
+    public function updating(Orderable $model): void
     {
         if (! Config::getOrderingUpdating()) {
             return;
