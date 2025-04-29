@@ -42,15 +42,15 @@ trait HasOrder
 
     public function getMaxOrder(): int
     {
-        $model = new static;
-        $query = $model->orderable()->query;
-        $column = $model->orderable()->column;
+        $query = $this->orderable()->query;
+        $column = $this->orderable()->column;
 
-        if (! $model instanceof Model) {
+        if (! $this instanceof Model) {
             throw InvalidModel::doesNotImplementModel(static::class);
         }
 
-        $builder = $model->query();
+        /** @var Model $this */
+        $builder = $this->query();
 
         return (int) $query($builder)->getQuery()->max($column);
     }
