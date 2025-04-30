@@ -9,7 +9,7 @@ class OrderableObserver
 {
     public function creating(Orderable $model): void
     {
-        if (! Config::getOrderingCreating()) {
+        if (! Config::getOrderingCreating(true)) {
             return;
         }
 
@@ -27,7 +27,7 @@ class OrderableObserver
 
     public function updating(Orderable $model): void
     {
-        if (! Config::getOrderingUpdating()) {
+        if (! Config::getOrderingUpdating(true)) {
             return;
         }
 
